@@ -16,7 +16,7 @@ export default async function LoginPage() {
 
     const token = res.data.token
 
-    const cookieStore = await cookies()
+    const cookieStore = await cookies();
 
     cookieStore.set('token', token, {
       httpOnly: true,
