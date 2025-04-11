@@ -1,11 +1,11 @@
 // app/login/page.tsx
-
+'use server'
 import api from '@/lib/api'
 import { cookies } from 'next/headers'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
-export default function LoginPage() {
+export default async function LoginPage() {
   async function handleLogin(formData: FormData) {
     'use server'
 
@@ -16,12 +16,12 @@ export default function LoginPage() {
 
     const token = res.data.token
 
-    await cookies().set({
-      name: 'token',
-      value: token,
+    const cookieStore = await cookies()
+
+    cookieStore.set('token', token, {
       httpOnly: true,
       path: '/',
-      maxAge: 60 * 60 * 12, // 12 hrs
+      maxAge: 60 * 60 * 12,
       sameSite: 'lax',
       secure: process.env.NODE_ENV === 'production',
     })
