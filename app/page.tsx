@@ -9,6 +9,9 @@ export default async function HomePage() {
     console.log('Token is found redirected to the dashboard');
     redirect('/dashboard')
   }
+  else{
+    redirect('/posts');
+  }
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Welcome to My Blog</h2>
