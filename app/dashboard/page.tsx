@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import api from '@/lib/api'
 import { cookies } from 'next/headers'
 import Link from 'next/link';
