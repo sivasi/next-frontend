@@ -1,6 +1,6 @@
 // components/Loading.tsx
 const Loading = () => (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center mt-20">
         <div role="status">
             <svg
                 aria-hidden="true"
